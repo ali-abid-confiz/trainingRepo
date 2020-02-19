@@ -16,11 +16,8 @@
 
 	
 <properties>
-   <jib-maven-plugin.version>1.7.0</jib-maven-plugin.version>
-   <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
+   
    <java.version>11</java.version>
-   <username>wingtiptoysregistry</username>
-   <password>{put your Azure Container Registry access key here}</password>
 </properties>
 	<dependencies>
 		<dependency>
@@ -47,26 +44,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-			<plugin>
-  <artifactId>jib-maven-plugin</artifactId>
-  <groupId>com.google.cloud.tools</groupId>
-  <version>1.8.0</version>
-  <configuration>
-     <from>
-         <image>openjdk:8-jre-alpine</image>
-     </from>
-     <to>
-         <image>springazuretestregistry.azurecr.io/MavenWrapperDownloader</image>
-         <auth>
-            <username>springazuretestregistry</username>
-            <password>Q8ytssa+6fsSVh50MU7D6x6sHU/6U1XH</password>
-         </auth>
-     </to>
-  </configuration>
-</plugin>
-			
-			
 			
 		</plugins>
 	</build>
