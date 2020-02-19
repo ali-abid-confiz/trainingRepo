@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.configuration.microservice</groupId>
+	<artifactId>docker-spring-azure-project</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>docker-spring-azure-project</name>
+	<description>learning Security Microservices</description>
+
+	
+<properties>
+   <jib-maven-plugin.version>1.7.0</jib-maven-plugin.version>
+   <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
+   <java.version>11</java.version>
+   <username>wingtiptoysregistry</username>
+   <password>{put your Azure Container Registry access key here}</password>
+</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+  <artifactId>jib-maven-plugin</artifactId>
+  <groupId>com.google.cloud.tools</groupId>
+  <version>1.8.0</version>
+  <configuration>
+     <from>
+         <image>openjdk:8-jre-alpine</image>
+     </from>
+     <to>
+         <image>springazuretestregistry.azurecr.io/MavenWrapperDownloader</image>
+         <auth>
+            <username>springazuretestregistry</username>
+            <password>Q8ytssa+6fsSVh50MU7D6x6sHU/6U1XH</password>
+         </auth>
+     </to>
+  </configuration>
+</plugin>
+			
+			
+			
+		</plugins>
+	</build>
+</project>
